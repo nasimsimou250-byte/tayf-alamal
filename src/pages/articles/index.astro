@@ -1,0 +1,529 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'جميع المقالات';
+const description = 'اكتشف مجموعتنا الكاملة من المقالات العلمية المبسطة حول طيف التوحد باللغة العربية — تشخيص، علاج، أدوات، وأكثر.';
+
+const articles = [
+  {
+    slug: 'autism-levels-diagnosis',
+    title: 'مستويات طيف التوحد والتشخيص المبكر: دليل شامل للآباء',
+    excerpt: 'تعرّف على مستويات طيف التوحد الثلاثة وفق معايير DSM-5، وعلامات التشخيص المبكر، وأهمية التدخل المبكر في تحسين مسار الطفل.',
+    category: 'تشخيص',
+    categoryColor: '#3182ce',
+    readTime: '12 دقيقة',
+    emoji: '🔍',
+    date: 'سبتمبر 2026',
+  },
+  {
+    slug: 'aba-therapy-home',
+    title: 'العلاج السلوكي التطبيقي (ABA) في المنزل: كيف تبدأ؟',
+    excerpt: 'دليل عملي للآباء حول مبادئ العلاج السلوكي التطبيقي وكيفية تطبيق تقنياته الأساسية في المنزل لدعم طفلك اليومي.',
+    category: 'علاج',
+    categoryColor: '#38a169',
+    readTime: '15 دقيقة',
+    emoji: '🧩',
+    date: 'سبتمبر 2026',
+  },
+  {
+    slug: 'visual-schedules-flashcards',
+    title: 'الجداول البصرية والبطاقات التعليمية: أداة لا غنى عنها',
+    excerpt: 'كيف تصنع جدولاً بصرياً فعّالاً لطفلك؟ ولماذا تُعدّ البطاقات التعليمية من أهم أدوات التواصل والتعلم لأطفال الطيف؟',
+    category: 'أدوات',
+    categoryColor: '#d69e2e',
+    readTime: '10 دقيقة',
+    emoji: '🗓️',
+    date: 'سبتمبر 2026',
+  },
+  {
+    slug: 'social-stories',
+    title: 'القصص الاجتماعية: كيف تساعد طفلك على فهم العالم؟',
+    excerpt: 'تعلّم كيف تكتب قصة اجتماعية مناسبة لطفلك، وكيف تستخدم هذه الأداة لتعليمه المهارات الاجتماعية والتعامل مع المواقف الجديدة.',
+    category: 'أدوات',
+    categoryColor: '#d69e2e',
+    readTime: '11 دقيقة',
+    emoji: '📖',
+    date: 'سبتمبر 2026',
+  },
+  {
+    slug: 'apps-books',
+    title: 'أفضل التطبيقات والكتب الموصى بها لأطفال طيف التوحد',
+    excerpt: 'قائمة منقّحة بأفضل التطبيقات الرقمية والكتب المطبوعة والرقمية التي أثبتت فعاليتها في دعم الأطفال على الطيف وأسرهم.',
+    category: 'أدوات',
+    categoryColor: '#d69e2e',
+    readTime: '9 دقيقة',
+    emoji: '📱',
+    date: 'سبتمبر 2026',
+  },
+  {
+    slug: 'autism-faq',
+    title: '30 سؤالاً شائعاً عن التوحد: إجابات علمية واضحة',
+    excerpt: 'أكثر الأسئلة التي يطرحها الآباء حول التوحد — من الأسباب والتشخيص إلى العلاج والتوقعات — بإجابات علمية مبسطة.',
+    category: 'أسئلة وأجوبة',
+    categoryColor: '#805ad5',
+    readTime: '18 دقيقة',
+    emoji: '❓',
+    date: 'سبتمبر 2026',
+  },
+];
+
+const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئلة وأجوبة'];
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge">المكتبة العلمية</span>
+      <h1 class="page-hero__title">جميع المقالات</h1>
+      <p class="page-hero__lead">
+        {articles.length} مقالات علمية مبسطة تغطي كل ما يحتاجه أولياء الأمور حول طيف التوحد —
+        من التشخيص الأول إلى الأدوات اليومية والعلاج السلوكي.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filters -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters-bar">
+        <span class="filters-label">تصفية حسب:</span>
+        <div class="filters-buttons">
+          {categories.map((cat, i) => (
+            <button class={`filter-btn ${i === 0 ? 'filter-btn--active' : ''}`}>
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Top -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1122334455"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- Articles Grid -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="articles-meta">
+        <p>عرض <strong>{articles.length}</strong> مقالات</p>
+      </div>
+      <div class="articles-grid">
+        {articles.map((article) => (
+          <article class="article-card">
+            <div class="article-card__emoji">{article.emoji}</div>
+            <div class="article-card__body">
+              <div class="article-card__meta">
+                <span
+                  class="article-card__category"
+                  style={`background: ${article.categoryColor}20; color: ${article.categoryColor};`}
+                >
+                  {article.category}
+                </span>
+                <span class="article-card__time">⏱️ {article.readTime}</span>
+              </div>
+              <h2 class="article-card__title">
+                <a href={`/articles/${article.slug}/`}>{article.title}</a>
+              </h2>
+              <p class="article-card__excerpt">{article.excerpt}</p>
+              <div class="article-card__footer">
+                <span class="article-card__date">📅 {article.date}</span>
+                <a href={`/articles/${article.slug}/`} class="article-card__link">
+                  اقرأ المقال ←
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Mid -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="5544332211"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- Newsletter / CTA Section -->
+  <section class="cta-section">
+    <div class="container--narrow">
+      <div class="cta-box">
+        <div class="cta-box__icon">📬</div>
+        <h2 class="cta-box__title">هل تريد إضافة موضوع جديد؟</h2>
+        <p class="cta-box__text">
+          فريق طيف الأمل يعمل باستمرار على إضافة مقالات جديدة تُجيب على أسئلة الآباء.
+          إذا كان لديك موضوع تودّ أن نتناوله، أخبرنا عبر صفحة التواصل وسنأخذه بعين الاعتبار.
+        </p>
+        <a href="/contact/" class="btn btn--primary">اقترح موضوعاً</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-articles-section">
+    <div class="container--narrow">
+      <span class="badge">منهجيتنا</span>
+      <h2 class="section-title">كيف نكتب مقالاتنا؟</h2>
+      <p>
+        كل مقال على طيف الأمل يمر بعملية تحرير دقيقة تبدأ بالبحث في الأدبيات العلمية
+        المحكّمة، وتمر بمراجعة متخصص تربوي أو نفسي، وتنتهي بمراحل تحرير لغوي لضمان
+        الوضوح والسهولة. نهدف دائماً إلى:
+      </p>
+      <div class="method-grid">
+        <div class="method-item">
+          <span class="method-icon">🔬</span>
+          <h3>الأساس العلمي</h3>
+          <p>كل معلومة تستند إلى بحث علمي منشور أو توصية من منظمة صحية معترف بها.</p>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">🌐</span>
+          <h3>اللغة الميسّرة</h3>
+          <p>نترجم المصطلحات الأكاديمية إلى لغة عربية واضحة يفهمها كل أب وكل أم.</p>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">🛡️</span>
+          <h3>الحياد والأمانة</h3>
+          <p>نُفرَّق بوضوح بين ما هو مُثبت علمياً وما هو قيد البحث أو محل جدل.</p>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">🔄</span>
+          <h3>التحديث المستمر</h3>
+          <p>نراجع مقالاتنا دورياً ونُحدّثها لتعكس أحدث التوجهات العلمية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Bottom -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="9988776655"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #145749 100%);
+    color: #fff;
+    padding: var(--space-xl) 0 var(--space-lg);
+    text-align: center;
+  }
+
+  .page-hero .badge {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  .page-hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: #fff;
+    margin: var(--space-xs) 0;
+  }
+
+  .page-hero__lead {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  /* Filters */
+  .filters-section {
+    padding: var(--space-md) 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 70px;
+    z-index: 50;
+  }
+
+  .filters-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .filters-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .filters-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--color-border);
+    background: transparent;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .filter-btn--active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+
+  /* Articles Section */
+  .articles-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .articles-meta {
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* Article Card */
+  .article-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.25s, transform 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .article-card__emoji {
+    font-size: 3rem;
+    text-align: center;
+    padding: var(--space-md) var(--space-md) var(--space-xs);
+    background: var(--color-primary-xlight);
+  }
+
+  .article-card__body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .article-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .article-card__category {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .article-card__time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: var(--space-xs);
+    flex: 1;
+  }
+
+  .article-card__title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-card__title a:hover {
+    color: var(--color-primary);
+  }
+
+  .article-card__excerpt {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-sm);
+    flex: 1;
+  }
+
+  .article-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-xs);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto;
+  }
+
+  .article-card__date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-card__link {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-card__link:hover {
+    color: var(--color-accent);
+  }
+
+  /* CTA Box */
+  .cta-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1d7a67 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+    color: #fff;
+  }
+
+  .cta-box__icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-box__title {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-box__text {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 540px;
+    margin: 0 auto var(--space-md);
+    line-height: 1.85;
+  }
+
+  .cta-box .btn--primary {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(244,162,51,0.4);
+  }
+
+  .cta-box .btn--primary:hover {
+    background: #e8931f;
+  }
+
+  /* About Articles */
+  .about-articles-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .method-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .method-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .method-item h3 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .method-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .method-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filters-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

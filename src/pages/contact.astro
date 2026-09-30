@@ -1,0 +1,603 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'تواصل معنا';
+const description = 'تواصل مع فريق طيف الأمل لأي استفسار أو اقتراح حول محتوانا المتعلق بطيف التوحد.';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <span class="badge">نسعد بتواصلك</span>
+      <h1 class="page-hero__title">تواصل معنا</h1>
+      <p class="page-hero__lead">
+        فريق طيف الأمل يرحب دائماً بأسئلتك واقتراحاتك وتجاربك.
+        راسلنا وسنردّ عليك في أقرب وقت ممكن.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ad Slot Top -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="4444444444"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <div class="form-header">
+            <h2>أرسل لنا رسالة</h2>
+            <p class="form-note">
+              📌 يتم مراجعة الرسائل يدوياً من قِبل فريقنا. نسعى للرد خلال <strong>48 ساعة</strong> في أيام العمل.
+            </p>
+          </div>
+
+          <form action="#" method="POST" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">الاسم الكامل <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="مثال: أحمد محمد العلي"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@email.com"
+                  required
+                  autocomplete="email"
+                  dir="ltr"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">موضوع الرسالة <span class="required">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>اختر موضوع رسالتك</option>
+                <option value="question">سؤال حول طيف التوحد</option>
+                <option value="article">اقتراح موضوع مقال جديد</option>
+                <option value="tool">طلب أداة تعليمية</option>
+                <option value="correction">تصحيح معلومة في مقال</option>
+                <option value="partnership">تعاون أو شراكة</option>
+                <option value="other">موضوع آخر</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">نص الرسالة <span class="required">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                placeholder="اكتب رسالتك هنا... كلما كانت تفاصيلك أوضح، كان ردّنا أكثر فائدة لك."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group form-check">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <label for="privacy" class="check-label">
+                أوافق على <a href="/privacy-policy/">سياسة الخصوصية</a> وأفهم أن رسالتي ستُراجَع يدوياً من فريق طيف الأمل.
+              </label>
+            </div>
+
+            <div class="form-group form-note-bottom">
+              <p>
+                ⚠️ <strong>تنبيه مهم:</strong> طيف الأمل منصة تعليمية وليست عيادة طبية.
+                لا يمكننا تقديم تشخيص أو خطط علاجية فردية. للحصول على تشخيص دقيق،
+                يُرجى مراجعة طبيب أو أخصائي متخصص في منطقتك.
+              </p>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              📤 إرسال الرسالة
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <aside class="contact-sidebar">
+          <div class="info-card">
+            <h3>🕐 أوقات الرد</h3>
+            <p>نراجع الرسائل خلال أيام العمل (الأحد — الخميس).</p>
+            <ul>
+              <li>الرسائل العامة: خلال 48 ساعة</li>
+              <li>اقتراحات المقالات: خلال أسبوع</li>
+              <li>طلبات الشراكة: خلال أسبوعين</li>
+            </ul>
+          </div>
+
+          <div class="info-card info-card--accent">
+            <h3>📧 البريد الإلكتروني</h3>
+            <p>للتواصل المباشر:</p>
+            <a href="mailto:contact@tayfalamal.com" dir="ltr" class="email-link">
+              contact@tayfalamal.com
+            </a>
+          </div>
+
+          <div class="info-card">
+            <h3>📱 متابعتنا</h3>
+            <p>تابعنا على منصات التواصل للحصول على آخر المقالات والأدوات:</p>
+            <div class="social-links">
+              <a href="#" class="social-btn">🐦 تويتر / X</a>
+              <a href="#" class="social-btn">📘 فيسبوك</a>
+              <a href="#" class="social-btn">📸 إنستغرام</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>🌍 نخدم جميع الأسر العربية</h3>
+            <p>
+              سواء كنت في السعودية، مصر، الإمارات، المغرب، أو أي دولة عربية أخرى —
+              طيف الأمل هنا لدعمك.
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Mid -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="5555555555"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container--narrow">
+      <span class="badge">أسئلة شائعة</span>
+      <h2 class="section-title">أسئلة شائعة حول التواصل معنا</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">هل يمكنني الحصول على استشارة طبية عبر الموقع؟</summary>
+          <div class="faq-answer">
+            <p>
+              لا، طيف الأمل منصة تعليمية بحتة ولا تقدم استشارات طبية أو تشخيصات.
+              المحتوى الموجود على الموقع لأغراض التوعية والتثقيف فقط. إذا كنت تبحث عن
+              تشخيص أو خطة علاجية لطفلك، يُرجى التواصل مع طبيب أطفال متخصص في التوحد
+              أو أخصائي تربية خاصة مُرخَّص في منطقتك.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">كيف يمكنني اقتراح موضوع لمقال جديد؟</summary>
+          <div class="faq-answer">
+            <p>
+              نرحب جداً باقتراحاتك! أرسل لنا رسالة عبر النموذج أعلاه واختر "اقتراح موضوع
+              مقال جديد" من قائمة الموضوعات. اشرح لنا ما الذي تودّ معرفته وما الجانب
+              الذي تجد فيه صعوبة في إيجاد محتوى عربي جيد. نأخذ كل اقتراح بجدية كاملة.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">هل تقبلون مشاركة تجاربنا الشخصية كأهل؟</summary>
+          <div class="faq-answer">
+            <p>
+              نعم بالتأكيد! تجارب الأهل تُثري المحتوى وتجعله أكثر واقعية وفائدة للأسر الأخرى.
+              يمكنك إرسال تجربتك عبر النموذج، وقد نستأذنك لاحقاً لنشرها (مع الحفاظ على
+              خصوصيتك إذا أردت ذلك) في قسم "قصص وتجارب" الذي نعمل على إضافته.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">وجدت معلومة في مقال تبدو غير دقيقة. كيف أُبلّغ عنها؟</summary>
+          <div class="faq-answer">
+            <p>
+              نشكرك على يقظتك! دقة المعلومات أهم شيء بالنسبة لنا. أرسل لنا رسالة عبر
+              النموذج واختر "تصحيح معلومة في مقال"، وذكر اسم المقال والمعلومة التي تعتقد
+              أنها غير دقيقة مع المصدر الذي تستند إليه. سنراجع المعلومة مع فريقنا
+              المتخصص ونحدّث المحتوى إن اقتضت الضرورة.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">هل تقبلون كتّاباً متخصصين للمشاركة في الموقع؟</summary>
+          <div class="faq-answer">
+            <p>
+              نحن نرحب بالتعاون مع المتخصصين في مجالات التربية الخاصة، وعلم النفس،
+              والعلاج بالكلام والنطق، والعلاج الوظيفي. إذا كنت متخصصاً وترغب في المساهمة
+              بمقالات علمية مُحكَّمة، أرسل لنا طلبك عبر النموذج واختر "تعاون أو شراكة"،
+              وأرفق نبذة مختصرة عن خلفيتك المهنية.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">ما مدة الانتظار قبل تلقّي الرد؟</summary>
+          <div class="faq-answer">
+            <p>
+              نسعى للرد على جميع الرسائل خلال 48 ساعة في أيام العمل (الأحد — الخميس).
+              في حالات الأسئلة التفصيلية التي تحتاج إلى مراجعة متخصصة قد يمتد الوقت
+              إلى أسبوع. إذا لم تتلقَّ رداً خلال أسبوع، يُرجى التحقق من مجلد البريد
+              غير المرغوب فيه (Spam) قبل إعادة إرسال رسالتك.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Bottom -->
+  <div class="container">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="6666666666"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #145749 100%);
+    color: #fff;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .page-hero .badge {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  .page-hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: #fff;
+    margin: var(--space-xs) 0;
+  }
+
+  .page-hero__lead {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  /* Contact Layout */
+  .contact-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  /* Form */
+  .contact-form-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .form-note {
+    background: var(--color-primary-xlight);
+    border-right: 3px solid var(--color-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--color-text);
+  }
+
+  .required {
+    color: #e53e3e;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.12);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 160px;
+  }
+
+  .form-check {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .check-label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  .check-label a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .form-note-bottom p {
+    background: #fff8e1;
+    border-right: 3px solid var(--color-accent);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    color: #7a5a1a;
+    margin-bottom: 0;
+  }
+
+  .btn--full {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 1rem;
+  }
+
+  /* Sidebar */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .info-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-card--accent {
+    background: var(--color-accent-light);
+    border-color: #f4c06a;
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-card li {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .info-card li:last-child {
+    border-bottom: none;
+  }
+
+  .email-link {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    word-break: break-all;
+    direction: ltr;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-btn {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-primary-xlight);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .social-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: var(--space-xl) 0;
+    background: var(--color-primary-xlight);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .faq-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: var(--space-md);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    font-weight: 400;
+    flex-shrink: 0;
+    margin-right: 0;
+    margin-left: var(--space-xs);
+  }
+
+  .faq-item[open] .faq-question {
+    background: var(--color-primary-xlight);
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-answer p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

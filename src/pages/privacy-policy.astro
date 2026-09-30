@@ -1,0 +1,619 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'سياسة الخصوصية';
+const description = 'سياسة خصوصية موقع طيف الأمل — كيف نجمع ونستخدم بياناتك وكيف نحمي خصوصيتك.';
+const lastUpdated = 'سبتمبر 2026';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <span class="badge">قانوني</span>
+      <h1 class="page-hero__title">سياسة الخصوصية</h1>
+      <p class="page-hero__lead">
+        نلتزم في طيف الأمل بحماية خصوصيتك والشفافية الكاملة حول كيفية جمع بياناتك
+        واستخدامها. يُرجى قراءة هذه السياسة بعناية.
+      </p>
+      <p class="last-updated">آخر تحديث: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <!-- Ad Slot Top -->
+  <div class="container--narrow">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="7777777777"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- Table of Contents -->
+  <section class="policy-section">
+    <div class="container--narrow">
+      <div class="toc-box">
+        <h2 class="toc-title">📋 فهرس المحتوى</h2>
+        <ol class="toc-list">
+          <li><a href="#intro">مقدمة وتعريف الموقع</a></li>
+          <li><a href="#data-collection">البيانات التي نجمعها</a></li>
+          <li><a href="#cookies">ملفات تعريف الارتباط (الكوكيز)</a></li>
+          <li><a href="#adsense">إعلانات Google AdSense</a></li>
+          <li><a href="#analytics">Google Analytics</a></li>
+          <li><a href="#third-party">الأطراف الثالثة</a></li>
+          <li><a href="#data-use">كيف نستخدم بياناتك</a></li>
+          <li><a href="#data-storage">تخزين البيانات وأمانها</a></li>
+          <li><a href="#user-rights">حقوق المستخدم</a></li>
+          <li><a href="#children">خصوصية الأطفال</a></li>
+          <li><a href="#changes">التغييرات على هذه السياسة</a></li>
+          <li><a href="#contact">التواصل بخصوص البيانات</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Content -->
+  <section class="policy-section">
+    <div class="container--narrow">
+      <div class="policy-body">
+
+        <div class="policy-block" id="intro">
+          <h2>1. مقدمة وتعريف الموقع</h2>
+          <p>
+            يُشغّل موقع <strong>طيف الأمل</strong> (المُشار إليه لاحقاً بـ "الموقع" أو "نحن")
+            هذه السياسة لتوضيح ممارساتنا المتعلقة بالخصوصية وجمع البيانات. الموقع منصة
+            تعليمية عربية متخصصة في توفير محتوى مبسط حول طيف التوحد للآباء والمربّين.
+          </p>
+          <p>
+            باستخدامك لهذا الموقع، فإنك توافق على الشروط الواردة في هذه السياسة. إذا كنت
+            لا توافق على أي من هذه الشروط، يُرجى التوقف عن استخدام الموقع.
+          </p>
+          <p>
+            هذه السياسة متوافقة مع اللائحة الأوروبية العامة لحماية البيانات (GDPR) وسياسات
+            Google AdSense وGoogle Analytics، إضافة إلى المتطلبات القانونية المعمول بها
+            في الدول العربية المختلفة.
+          </p>
+        </div>
+
+        <div class="policy-block" id="data-collection">
+          <h2>2. البيانات التي نجمعها</h2>
+          <h3>أ. البيانات التي تُقدمها مباشرة</h3>
+          <p>
+            عندما تتواصل معنا عبر نموذج الاتصال، قد نجمع:
+          </p>
+          <ul>
+            <li>الاسم الكامل</li>
+            <li>عنوان البريد الإلكتروني</li>
+            <li>موضوع ومحتوى الرسالة</li>
+          </ul>
+          <p>
+            لا نطلب بيانات حساسة كأرقام الهوية أو البيانات الصحية أو بيانات الدفع.
+          </p>
+
+          <h3>ب. البيانات التي تُجمع تلقائياً</h3>
+          <p>عند زيارتك للموقع، قد نجمع تلقائياً المعلومات التالية:</p>
+          <ul>
+            <li>عنوان IP الخاص بك (مجهول الهوية عند الإمكان)</li>
+            <li>نوع المتصفح وإصداره</li>
+            <li>نظام التشغيل المستخدم</li>
+            <li>الصفحات التي تزورها والمدة التي تقضيها فيها</li>
+            <li>مصدر الزيارة (محركات البحث، روابط مباشرة، إلخ)</li>
+            <li>الجهاز المستخدم (هاتف، حاسوب، لوحي)</li>
+            <li>بلد الزيارة</li>
+          </ul>
+        </div>
+
+        <div class="policy-block" id="cookies">
+          <h2>3. ملفات تعريف الارتباط (الكوكيز)</h2>
+          <p>
+            يستخدم موقعنا ملفات تعريف الارتباط (Cookies) لتحسين تجربتك وتشغيل الخدمات
+            المرتبطة بالموقع. الكوكيز هي ملفات نصية صغيرة تُحفظ على جهازك عند زيارة الموقع.
+          </p>
+
+          <h3>أنواع الكوكيز التي نستخدمها:</h3>
+          <div class="cookies-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>النوع</th>
+                  <th>الغرض</th>
+                  <th>المدة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>كوكيز ضرورية</strong></td>
+                  <td>ضرورية لعمل الموقع الأساسي</td>
+                  <td>الجلسة فقط</td>
+                </tr>
+                <tr>
+                  <td><strong>كوكيز التحليل</strong></td>
+                  <td>تحليل سلوك الزوار (Google Analytics)</td>
+                  <td>26 شهراً</td>
+                </tr>
+                <tr>
+                  <td><strong>كوكيز الإعلانات</strong></td>
+                  <td>عرض إعلانات مخصصة (Google AdSense)</td>
+                  <td>13 شهراً</td>
+                </tr>
+                <tr>
+                  <td><strong>كوكيز التفضيلات</strong></td>
+                  <td>تذكّر تفضيلاتك على الموقع</td>
+                  <td>12 شهراً</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            يمكنك التحكم في الكوكيز عبر إعدادات متصفحك. تعطيل بعض الكوكيز قد يؤثر على
+            عمل بعض ميزات الموقع. للمزيد حول إدارة الكوكيز:
+            <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer" dir="ltr">www.allaboutcookies.org</a>
+          </p>
+        </div>
+
+        <div class="policy-block" id="adsense">
+          <h2>4. إعلانات Google AdSense</h2>
+          <p>
+            يستخدم موقع طيف الأمل خدمة <strong>Google AdSense</strong> لعرض إعلانات على
+            الموقع. هذه الإعلانات تساعدنا في تمويل الموقع وتقديم المحتوى مجاناً للمستخدمين.
+          </p>
+          <p>
+            تستخدم Google ملفات تعريف ارتباط لعرض الإعلانات بناءً على زياراتك السابقة لهذا
+            الموقع ومواقع أخرى. يمكنك إلغاء الاشتراك في الإعلانات المخصصة عبر زيارة:
+          </p>
+          <ul>
+            <li>
+              <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" dir="ltr">
+                www.google.com/settings/ads
+              </a>
+            </li>
+            <li>
+              <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" dir="ltr">
+                www.aboutads.info
+              </a>
+            </li>
+          </ul>
+          <p>
+            سياسة خصوصية Google متاحة على:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" dir="ltr">
+              policies.google.com/privacy
+            </a>
+          </p>
+          <div class="info-box">
+            <p>
+              <strong>ملاحظة مهمة:</strong> لا نتحكم في محتوى الإعلانات التي تعرضها Google
+              على موقعنا. تعمل Google وشركاؤها بموجب سياساتهم الخاصة لحماية البيانات.
+            </p>
+          </div>
+        </div>
+
+        <div class="policy-block" id="analytics">
+          <h2>5. Google Analytics</h2>
+          <p>
+            نستخدم <strong>Google Analytics</strong> لتحليل حركة المرور على الموقع وفهم كيفية
+            تفاعل الزوار مع المحتوى. تساعدنا هذه البيانات على تحسين الموقع وتقديم محتوى أكثر
+            ملاءمة لاحتياجاتك.
+          </p>
+          <p>يجمع Google Analytics بيانات مجهولة الهوية تشمل:</p>
+          <ul>
+            <li>عدد الزيارات ومدتها</li>
+            <li>الصفحات الأكثر زيارة</li>
+            <li>الجهاز والمتصفح المستخدم</li>
+            <li>الدولة التي تزور منها (مجهولة IP)</li>
+            <li>مصادر الزيارات</li>
+          </ul>
+          <p>
+            لإلغاء تتبع Google Analytics، يمكنك تثبيت الإضافة الرسمية:
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" dir="ltr">
+              Google Analytics Opt-out Browser Add-on
+            </a>
+          </p>
+        </div>
+
+        <div class="policy-block" id="third-party">
+          <h2>6. الأطراف الثالثة</h2>
+          <p>
+            قد يحتوي موقعنا على روابط لمواقع خارجية أو مصادر تعليمية. نحن غير مسؤولين عن
+            سياسات الخصوصية المتبعة في تلك المواقع. نوصيك بمراجعة سياسة الخصوصية لكل موقع
+            تزوره بشكل منفصل.
+          </p>
+          <p>خدمات الأطراف الثالثة التي قد تُجمع بيانات عبر موقعنا:</p>
+          <ul>
+            <li><strong>Google LLC</strong> — AdSense وAnalytics وخدمات أخرى</li>
+            <li><strong>Cloudflare</strong> — حماية الموقع وتحسين الأداء (إن استُخدم)</li>
+            <li><strong>Google Fonts</strong> — تحميل الخطوط العربية</li>
+          </ul>
+        </div>
+
+        <div class="policy-block" id="data-use">
+          <h2>7. كيف نستخدم بياناتك</h2>
+          <p>نستخدم البيانات التي نجمعها للأغراض التالية حصراً:</p>
+          <ul>
+            <li>الرد على استفساراتك ورسائلك</li>
+            <li>تحسين جودة المحتوى وتجربة المستخدم</li>
+            <li>تحليل أداء الموقع وتطويره</li>
+            <li>عرض إعلانات ملائمة عبر Google AdSense</li>
+            <li>الامتثال للمتطلبات القانونية</li>
+          </ul>
+          <p>
+            <strong>لا نقوم أبداً بما يلي:</strong>
+          </p>
+          <ul>
+            <li>بيع بياناتك الشخصية لأي طرف ثالث</li>
+            <li>استخدام بياناتك لأغراض تجارية خارج نطاق الإعلانات المُصرَّح بها</li>
+            <li>إرسال رسائل تجارية غير مرغوب فيها (Spam)</li>
+            <li>مشاركة بياناتك مع جهات غير موثوقة</li>
+          </ul>
+        </div>
+
+        <div class="policy-block" id="data-storage">
+          <h2>8. تخزين البيانات وأمانها</h2>
+          <p>
+            نتخذ التدابير التقنية والتنظيمية المناسبة لحماية بياناتك من الوصول غير المصرح
+            به أو التعديل أو الإفصاح أو الحذف. تشمل هذه التدابير:
+          </p>
+          <ul>
+            <li>تشفير الاتصال عبر بروتوكول HTTPS</li>
+            <li>الوصول المحدود للبيانات على فريق العمل الضروري فقط</li>
+            <li>مراجعة دورية لإجراءات الأمان</li>
+          </ul>
+          <p>
+            نحتفظ بالبيانات الشخصية للمدة اللازمة فقط، وبعد ذلك يتم حذفها بشكل آمن.
+            رسائل التواصل تُحفظ لمدة لا تتجاوز عامين.
+          </p>
+        </div>
+
+        <div class="policy-block" id="user-rights">
+          <h2>9. حقوق المستخدم</h2>
+          <p>
+            وفقاً للائحة العامة لحماية البيانات (GDPR) والتشريعات المماثلة، تتمتع بالحقوق
+            التالية فيما يخص بياناتك الشخصية:
+          </p>
+          <div class="rights-grid">
+            <div class="right-item">
+              <span class="right-icon">👁️</span>
+              <div>
+                <h4>حق الوصول</h4>
+                <p>طلب نسخة من بياناتك الشخصية التي نحتفظ بها.</p>
+              </div>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">✏️</span>
+              <div>
+                <h4>حق التصحيح</h4>
+                <p>طلب تصحيح أي بيانات غير دقيقة أو ناقصة.</p>
+              </div>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">🗑️</span>
+              <div>
+                <h4>حق الحذف</h4>
+                <p>طلب حذف بياناتك الشخصية من أنظمتنا.</p>
+              </div>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">🚫</span>
+              <div>
+                <h4>حق الاعتراض</h4>
+                <p>الاعتراض على معالجة بياناتك لأغراض التسويق.</p>
+              </div>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">📦</span>
+              <div>
+                <h4>حق النقل</h4>
+                <p>طلب نقل بياناتك إلى مزود خدمة آخر.</p>
+              </div>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">⏸️</span>
+              <div>
+                <h4>حق التقييد</h4>
+                <p>طلب تقييد معالجة بياناتك في ظروف معينة.</p>
+              </div>
+            </div>
+          </div>
+          <p>
+            لممارسة أي من هذه الحقوق، تواصل معنا عبر <a href="/contact/">صفحة التواصل</a>
+            أو راسلنا على: <a href="mailto:privacy@tayfalamal.com" dir="ltr">privacy@tayfalamal.com</a>
+          </p>
+        </div>
+
+        <div class="policy-block" id="children">
+          <h2>10. خصوصية الأطفال</h2>
+          <p>
+            موقع طيف الأمل موجّه للبالغين من الآباء والمربّين والمتخصصين. لا نجمع عن قصد
+            أي بيانات شخصية من الأطفال دون سن 13 عاماً.
+          </p>
+          <p>
+            إذا كنت تعتقد أن طفلاً قد قدّم لنا معلومات شخصية، يُرجى التواصل معنا فوراً
+            لحذف هذه المعلومات.
+          </p>
+          <p>
+            رغم أن موقعنا يتحدث عن الأطفال ذوي طيف التوحد، إلا أن المحتوى موجّه دائماً
+            للأهل والمختصين وليس للأطفال أنفسهم.
+          </p>
+        </div>
+
+        <div class="policy-block" id="changes">
+          <h2>11. التغييرات على هذه السياسة</h2>
+          <p>
+            قد نُحدّث هذه السياسة من وقت لآخر لتعكس التغييرات في ممارساتنا أو التشريعات
+            المعمول بها. سنُشير إلى تاريخ آخر تحديث في أعلى الصفحة.
+          </p>
+          <p>
+            نوصيك بمراجعة هذه السياسة بشكل دوري. استمرارك في استخدام الموقع بعد إجراء
+            تغييرات على السياسة يُعتبر قبولاً ضمنياً لهذه التغييرات.
+          </p>
+          <p>في حالة إجراء تغييرات جوهرية، سنُبلّغك عبر إشعار واضح على الصفحة الرئيسية.</p>
+        </div>
+
+        <div class="policy-block" id="contact">
+          <h2>12. التواصل بخصوص البيانات</h2>
+          <p>
+            لأي استفسار يتعلق بهذه السياسة أو بياناتك الشخصية، يمكنك التواصل معنا:
+          </p>
+          <div class="contact-info-box">
+            <p><strong>البريد الإلكتروني المخصص للخصوصية:</strong><br/>
+              <a href="mailto:privacy@tayfalamal.com" dir="ltr">privacy@tayfalamal.com</a>
+            </p>
+            <p><strong>نموذج التواصل العام:</strong><br/>
+              <a href="/contact/">صفحة تواصل معنا</a>
+            </p>
+            <p><strong>مدة الاستجابة:</strong> نسعى للرد خلال 30 يوماً من تاريخ الطلب.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Slot Bottom -->
+  <div class="container--narrow">
+    <div class="ad-slot">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="8888888888"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #1c2b2a 0%, #2d4a44 100%);
+    color: #fff;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .page-hero .badge {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .page-hero__title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: #fff;
+    margin: var(--space-xs) 0;
+  }
+
+  .page-hero__lead {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 640px;
+    margin: 0 auto var(--space-xs);
+    line-height: 1.9;
+  }
+
+  .last-updated {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    font-family: var(--font-display);
+  }
+
+  /* TOC */
+  .policy-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .toc-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .toc-title {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+  }
+
+  .toc-list {
+    columns: 2;
+    column-gap: var(--space-md);
+  }
+
+  .toc-list li {
+    margin-bottom: 0.4rem;
+    font-size: 0.92rem;
+    break-inside: avoid;
+  }
+
+  .toc-list a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .toc-list a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  /* Policy Body */
+  .policy-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .policy-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .policy-block h2 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .policy-block h3 {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-xs);
+  }
+
+  .policy-block h4 {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .policy-block p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .policy-block ul, .policy-block ol {
+    margin-bottom: var(--space-sm);
+  }
+
+  .policy-block li {
+    font-size: 0.97rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+
+  .policy-block a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  /* Cookies Table */
+  .cookies-table {
+    overflow-x: auto;
+    margin: var(--space-sm) 0;
+  }
+
+  .cookies-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .cookies-table th {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .cookies-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 0.9rem;
+  }
+
+  .cookies-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cookies-table tr:nth-child(even) td {
+    background: var(--color-primary-xlight);
+  }
+
+  /* Rights Grid */
+  .rights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin: var(--space-sm) 0;
+  }
+
+  .right-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background: var(--color-primary-xlight);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem;
+  }
+
+  .right-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .right-item h4 {
+    margin-bottom: 0.2rem;
+  }
+
+  .right-item p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+
+  /* Contact Info Box */
+  .contact-info-box {
+    background: var(--color-primary-xlight);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    margin-top: var(--space-sm);
+  }
+
+  .contact-info-box p {
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .toc-list {
+      columns: 1;
+    }
+
+    .rights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
