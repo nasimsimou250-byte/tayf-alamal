@@ -167,8 +167,8 @@ const tools = [
                 <span>{tool.fileCount} — {tool.format}</span>
               </div>
             </div>
-            <a href="#" class="btn btn--primary tool-card__btn">
-              ⬇️ تحميل الأداة
+            <a href={`/tools/${tool.id}/`} class="btn btn--primary tool-card__btn">
+              ⬇️ عرض وطباعة الأداة (PDF)
             </a>
           </div>
         ))}
@@ -209,8 +209,8 @@ const tools = [
                     {tool.category}
                   </span>
                 </div>
-                <a href="#" class="btn btn--outline tool-list-item__btn">
-                  تحميل ⬇️
+                <a href={`/tools/${tool.id}/`} class="btn btn--outline tool-list-item__btn">
+                  عرض وطباعة ⬇️
                 </a>
               </div>
               <p class="tool-list-item__desc">{tool.description}</p>

@@ -1,0 +1,824 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { tool: 'visual-schedule' },
+      props: {
+        id: 'visual-schedule',
+        emoji: '🗓️',
+        title: 'قوالب الجدول البصري اليومي',
+        subtitle: 'Daily Visual Schedule Printable Cards',
+        category: 'تنظيم وروتين',
+        description: 'مجموعة بطاقات بصرية متكاملة جاهزة للطباعة والاستخدام المنزلي الفوري لمساعدة طفلك على تنظيم يومه وتقليل التوتر.',
+        instructions: [
+          'قم بطباعة هذه الصفحة بالضغط على زر "طباعة الأداة (PDF)" أدناه.',
+          'قُم بقص البطاقات وتغليفها حرارياً (Lamination) لتدوم طويلاً.',
+          'ثبّت شريط لاصق (Velcro) خلف كل بطاقة وعلى لوحة الجدول اليومي.',
+          'رتّب الأنشطة مع طفلك كل صباح أو في المساء قبل النوم.',
+          'عند انتهاء الطفل من أي نشاط، دعه ينقل البطاقة إلى صندوق "انتهيت ✅".'
+        ],
+        cards: [
+          { icon: '🌅', label: 'الاستيقاظ من النوم', time: 'الصباح' },
+          { icon: '🧼', label: 'غسل الوجه واليدين', time: 'الصباح' },
+          { icon: '🪥', label: 'تفريش الأسنان', time: 'الصباح' },
+          { icon: '👕', label: 'ارتداء الملابس', time: 'الصباح' },
+          { icon: '🥣', label: 'تناول الفطور', time: 'الصباح' },
+          { icon: '🎒', label: 'تجهيز الحقيبة', time: 'الصباح' },
+          { icon: '🚌', label: 'ركوب الحافلة', time: 'المدرسة' },
+          { icon: '🏫', label: 'وقت الحصة الدراسية', time: 'المدرسة' },
+          { icon: '🍎', label: 'وجبة خفيفة / الفسحة', time: 'المدرسة' },
+          { icon: '🏠', label: 'العودة إلى المنزل', time: 'بعد الظهر' },
+          { icon: '🍲', label: 'تناول طعام الغداء', time: 'بعد الظهر' },
+          { icon: '🛋️', label: 'وقت الراحة والهدوء', time: 'بعد الظهر' },
+          { icon: '✏️', label: 'حل الواجبات المدرسية', time: 'المساء' },
+          { icon: '🧸', label: 'وقت اللعب الحر', time: 'المساء' },
+          { icon: '🌳', label: 'الخروج إلى الحديقة', time: 'المساء' },
+          { icon: '🍽️', label: 'تناول طعام العشاء', time: 'المساء' },
+          { icon: '🛁', label: 'الاستحمام الدافئ', time: 'قبل النوم' },
+          { icon: '📖', label: 'قراءة قصة قبل النوم', time: 'قبل النوم' },
+          { icon: '🌙', label: 'النوم وإطفاء الأنوار', time: 'قبل النوم' },
+          { icon: '✅', label: 'أنجزت المهمة بنجاح', time: 'إنجاز' }
+        ]
+      }
+    },
+    {
+      params: { tool: 'flashcards' },
+      props: {
+        id: 'flashcards',
+        emoji: '🃏',
+        title: 'بطاقات التواصل البصري والتعبير',
+        subtitle: 'Communication & Needs Flashcards',
+        category: 'تواصل ولغة',
+        description: 'بطاقات تعبيرية واضحة تُساعد طفل التوحد على التعبير عن احتياجاته الأساسية ومشاعره بدون نوبات غضب أو إحباط.',
+        instructions: [
+          'اطبع البطاقات على ورق مقوى واستخدم التغليف البلاستيكي لزيادة المتانة.',
+          'ضع بطاقات "الاحتياجات الأساسية" في متناول يد الطفل دائماً (على الثلاجة أو طاولة الطعام).',
+          'علّم الطفل الإشارة للبطاقة أو تسليمها لك عند الرغبة في شيء (نظام PECS).',
+          'امدح الطفل فوراً عند استخدامه البطاقة وقدّم له ما طلب لتعزيز سلوك التواصل.'
+        ],
+        cards: [
+          { icon: '💧', label: 'أريد ماء', time: 'احتياج أساسي' },
+          { icon: '🥪', label: 'أنا جائع / طعام', time: 'احتياج أساسي' },
+          { icon: '🚻', label: 'أريد دورة المياه', time: 'احتياج أساسي' },
+          { icon: '🆘', label: 'أحتاج مساعدة', time: 'احتياج أساسي' },
+          { icon: '🛑', label: 'توقف / لا أريد', time: 'تعبير' },
+          { icon: '👍', label: 'نعم / موافق', time: 'تعبير' },
+          { icon: '🤗', label: 'أريد عناقاً / دفء', time: 'مشاعر' },
+          { icon: '😊', label: 'أنا سعيد ومطمئن', time: 'مشاعر' },
+          { icon: '😢', label: 'أنا حزين', time: 'مشاعر' },
+          { icon: '😡', label: 'أنا غاضب / منزعج', time: 'مشاعر' },
+          { icon: '😨', label: 'أنا خائف', time: 'مشاعر' },
+          { icon: '🥱', label: 'أنا متعب / نعسان', time: 'مشاعر' },
+          { icon: '🩹', label: 'أشعر بألم هنا', time: 'صحة' },
+          { icon: '🤫', label: 'المكان صاخب جداً', time: 'حسي' },
+          { icon: '🎧', label: 'أريد سماعات الأذن', time: 'حسي' },
+          { icon: '🎨', label: 'أريد أن أرسم', time: 'نشاط' }
+        ]
+      }
+    },
+    {
+      params: { tool: 'social-stories' },
+      props: {
+        id: 'social-stories',
+        emoji: '📖',
+        title: 'قوالب القصص الاجتماعية الجاهزة',
+        subtitle: 'Social Stories Printable Worksheets',
+        category: 'مهارات اجتماعية',
+        description: 'نماذج قصص اجتماعية مصوّرة باللغة العربية تشرح المواقف الاجتماعية الجديدة وتهيئ الطفل نفسياً للتعامل معها.',
+        instructions: [
+          'اقرأ القصة مع طفلك قبل حدوث الموقف بيوم أو يومين في وقت هادئ.',
+          'كرر قراءة القصة عدة مرات بنبرة مطمئنة ومشجعة.',
+          'اطلب من الطفل تلوين الصور أو كتابة اسمه لزيادة ارتباطه بالقصة.',
+          'استحضر القصة بلطف عند حدوث الموقف الحقيقي لتذكير الطفل بالسلوك المناسب.'
+        ],
+        stories: [
+          {
+            title: 'قصة 1: زيارة طبيب الأسنان 🦷',
+            paragraphs: [
+              'في بعض الأيام، أذهب مع ماما أو بابا لزيارة طبيب الأسنان.',
+              'طبيب الأسنان صديقي، وهو يفحص أسناني لتكون قوية ونظيفة.',
+              'في العيادة، سأجلس على كرسي كبير ومريح يصعد وينزل كالأرجوحة.',
+              'قد يستخدم الطبيب ضوءاً ساطعاً ومرآة صغيرة. هذا آمن تماماً ولا يخيف.',
+              'سأفتح فمي بهدوء وأتنفس ببطء حتى ينتهي الطبيب.',
+              'عندما أنتهي، سأكون بطلاً فخوراً بنفسي وسأحصل على ملصق رائع!'
+            ]
+          },
+          {
+            title: 'قصة 2: الأصوات العالية في الأماكن العامة 🔊',
+            paragraphs: [
+              'أحياناً أسمع أصواتاً عالية مثل صوت الخلاط، أو صافرة الإنذار، أو صوت الحفلات.',
+              'الأصوات العالية قد تفاجئني وتجعل أذني تؤلمني، وهذا شعور يزعجني.',
+              'لكن الأصوات العالية لا يمكن أن تؤذيني حقيقةً.',
+              'إذا كان الصوت مزعجاً، يمكنني وضع يديّ على أذني، أو ارتداء سماعاتي.',
+              'يمكنني أيضاً الذهاب لماما أو بابا وطلب مكان هادئ.',
+              'بعد قليل سيتوقف الصوت وسأعود للعب وأنا مطمئن.'
+            ]
+          },
+          {
+            title: 'قصة 3: تبادل الأدوار أثناء اللعب ⏳',
+            paragraphs: [
+              'أنا أحب اللعب بالألعاب الجميلة مع أصدقائي وإخوتي.',
+              'في بعض الأحيان، يريد صديقي أن يلعب بنفس اللعبة التي معي.',
+              'اللعب المشترك يكون أجمل عندما نتبادل الأدوار (دور لي، ثم دور لك).',
+              'عندما أنتظر دوري، يمكنني العد حتى 10 أو استخدام مؤقت الرمل.',
+              'الانتظار يحتاج صبراً، لكن دوري سيأتي بالتأكيد قريباً.',
+              'أصدقائي يحبون اللعب معي عندما أشاركهم الألعاب بابتسامة.'
+            ]
+          }
+        ]
+      }
+    },
+    {
+      params: { tool: 'communication-boards' },
+      props: {
+        id: 'communication-boards',
+        emoji: '🖼️',
+        title: 'لوحة التواصل البديل والمعزز (AAC)',
+        subtitle: 'Printable Augmentative Communication Board',
+        category: 'تواصل ولغة',
+        description: 'لوحة تواصل رمزية متكاملة مقسمة بالألوان ومُصممة وفق المعايير العالمية لتمكين الأطفال غير الناطقين من التعبير الفوري.',
+        instructions: [
+          'اطبع هذه اللوحة بحجم A4 أو A3 على ورق سميك وغلّفها.',
+          'ضع اللوحة أمام الطفل أثناء التفاعل اليومي وطاولة الوجبات.',
+          'درّب الطفل على الإشارة إلى رمز "أنا أريد" ثم رمز الشيء الذي يريده (مثال: أنا أريد + ماء).',
+          'استجب دائماً لطلبات الطفل عبر اللوحة حتى يثق أنها وسيلته الفعالة للتحدث.'
+        ],
+        grid: [
+          { icon: '👆', text: 'أنا أريد', type: 'بداية جملة', color: '#1a6b5a' },
+          { icon: '💧', text: 'ماء', type: 'مشروب', color: '#3182ce' },
+          { icon: '🥪', text: 'طعام', type: 'وجبة', color: '#3182ce' },
+          { icon: '🧃', text: 'عصير', type: 'مشروب', color: '#3182ce' },
+          { icon: '🚻', text: 'حمام', type: 'احتياج', color: '#e53e3e' },
+          { icon: '🆘', text: 'مساعدة', type: 'طلب', color: '#e53e3e' },
+          { icon: '🛑', text: 'توقف', type: 'تعبير', color: '#e53e3e' },
+          { icon: '👍', text: 'نعم', type: 'تأكيد', color: '#38a169' },
+          { icon: '👎', text: 'لا', type: 'رفض', color: '#e53e3e' },
+          { icon: '➕', text: 'المزيد', type: 'طلب', color: '#d69e2e' },
+          { icon: '🏁', text: 'انتهيت', type: 'إنجاز', color: '#38a169' },
+          { icon: '🧸', text: 'لعبة', type: 'نشاط', color: '#805ad5' },
+          { icon: '📱', text: 'شاشة / آيباد', type: 'نشاط', color: '#805ad5' },
+          { icon: '🚶‍♂️', text: 'خروج / تمشي', type: 'حركة', color: '#805ad5' },
+          { icon: '😴', text: 'تعبان / نوم', type: 'حالة', color: '#4a5568' },
+          { icon: '❤️', text: 'أحبك / حضن', type: 'عاطفة', color: '#e53e3e' }
+        ]
+      }
+    },
+    {
+      params: { tool: 'daily-routine-charts' },
+      props: {
+        id: 'daily-routine-charts',
+        emoji: '⏰',
+        title: 'جداول الروتين والمتابعة اليومية',
+        subtitle: 'Printable Routine Checklists',
+        category: 'تنظيم وروتين',
+        description: 'جداول مهام تفصيلية بنظام خانات الإنجاز والمكافآت لتشجيع الطفل على إتمام مهامه الصباحية والمسائية باستقلالية وفخر.',
+        instructions: [
+          'اطبع هذا الجدول وعلّقه في غرفة الطفل أو على باب خزانته.',
+          'استخدم قلماً قابلاً للمسح (Dry-erase) إذا كان الجدول مغلّفاً، أو ملصقات تشجيعية نجوم ⭐.',
+          'دع الطفل يضع علامة الصح بنفسه بعد كل خطوة يُنجزها لتعزيز شعوره بالإنجاز.',
+          'احتفل مع طفلك عندما يكتمل الجدول بمكافأة معنوية محببة (مدح، قصة مفضلة، وقت لعب إضافي).'
+        ],
+        morningTasks: [
+          { time: '07:00', task: 'الاستيقاظ بروح طيبة والابتسام', icon: '🌅' },
+          { time: '07:10', task: 'استخدام دورة المياه وغسل اليدين', icon: '🚻' },
+          { time: '07:20', task: 'تفريش الأسنان جيداً', icon: '🪥' },
+          { time: '07:30', task: 'ارتداء ملابس المدرسة أو اليوم', icon: '👕' },
+          { time: '07:45', task: 'تناول وجبة الفطور الصحية', icon: '🥣' },
+          { time: '08:00', task: 'ارتداء الحذاء وحمل الحقيبة', icon: '🎒' }
+        ],
+        eveningTasks: [
+          { time: '17:00', task: 'إنهاء الواجبات المدرسية', icon: '✏️' },
+          { time: '18:00', task: 'ترتيب الألعاب في مكانها', icon: '🧸' },
+          { time: '19:00', task: 'تناول طعام العشاء مع الأسرة', icon: '🍽️' },
+          { time: '19:45', task: 'الاستحمام وارتداء ملابس النوم', icon: '🛁' },
+          { time: '20:15', task: 'تفريش الأسنان قبل النوم', icon: '🪥' },
+          { time: '20:30', task: 'قراءة قصة هادئة مع بابا أو ماما', icon: '📖' },
+          { time: '21:00', task: 'النوم المريح في السرير', icon: '🌙' }
+        ]
+      }
+    }
+  ];
+}
+
+const tool = Astro.props;
+---
+
+<BaseLayout
+  title={`${tool.title} — تحميل مجاني جاهز للطباعة`}
+  description={tool.description}
+>
+
+  <!-- Breadcrumb & Back -->
+  <div class="tool-top-bar">
+    <div class="container">
+      <a href="/tools/" class="back-link">← العودة إلى قائمة الأدوات التعليمية</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="tool-hero no-print">
+    <div class="container">
+      <div class="tool-hero__badge">{tool.category}</div>
+      <div class="tool-hero__emoji">{tool.emoji}</div>
+      <h1 class="tool-hero__title">{tool.title}</h1>
+      <p class="tool-hero__sub">{tool.subtitle}</p>
+      <p class="tool-hero__desc">{tool.description}</p>
+
+      <div class="tool-action-buttons">
+        <button type="button" class="btn btn--primary btn--print" onclick="window.print()">
+          🖨️ طباعة القالب أو حفظ كـ PDF
+        </button>
+        <a href="#preview" class="btn btn--outline">
+          👀 معاينة القالب أدناه
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructions Box -->
+  <section class="tool-instructions no-print">
+    <div class="container">
+      <div class="instructions-card">
+        <h3>💡 كيفية استخدام وتطبيق هذه الأداة مع طفلك:</h3>
+        <ol class="instructions-list">
+          {tool.instructions.map((step: string) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Printable Area -->
+  <section class="printable-section" id="preview">
+    <div class="container">
+      <div class="print-paper">
+
+        <!-- Print Header -->
+        <div class="print-header">
+          <div class="print-header__brand">
+            <span class="brand-icon">🌟</span>
+            <span class="brand-name">طيف الأمل</span>
+            <span class="brand-url">easyspot.online</span>
+          </div>
+          <div class="print-header__title">
+            <h2>{tool.title}</h2>
+            <p>أداة تعليمية وتطبيقية مجانية لدعم أطفال طيف التوحد وأسرهم</p>
+          </div>
+        </div>
+
+        <!-- Tool Content by Type -->
+        {tool.cards && (
+          <div class="cards-printable-grid">
+            {tool.cards.map((card: any) => (
+              <div class="print-card">
+                <div class="print-card__icon">{card.icon}</div>
+                <div class="print-card__label">{card.label}</div>
+                {card.time && <div class="print-card__tag">{card.time}</div>}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {tool.grid && (
+          <div class="aac-printable-grid">
+            {tool.grid.map((item: any) => (
+              <div class="aac-card" style={`border-color: ${item.color};`}>
+                <div class="aac-card__icon">{item.icon}</div>
+                <div class="aac-card__text">{item.text}</div>
+                <div class="aac-card__type" style={`background: ${item.color}15; color: ${item.color};`}>
+                  {item.type}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {tool.stories && (
+          <div class="stories-container">
+            {tool.stories.map((story: any) => (
+              <div class="story-card">
+                <h3 class="story-title">{story.title}</h3>
+                <div class="story-body">
+                  {story.paragraphs.map((p: string) => (
+                    <p class="story-p">{p}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {tool.morningTasks && (
+          <div class="routine-printable-container">
+            <div class="routine-col">
+              <h3 class="routine-col-title">🌅 روتين الصباح الباكر</h3>
+              <div class="tasks-table">
+                {tool.morningTasks.map((t: any) => (
+                  <div class="task-row">
+                    <span class="task-check">⬜</span>
+                    <span class="task-icon">{t.icon}</span>
+                    <span class="task-text">{t.task}</span>
+                    <span class="task-time">{t.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="routine-col">
+              <h3 class="routine-col-title">🌙 روتين المساء والنوم</h3>
+              <div class="tasks-table">
+                {tool.eveningTasks.map((t: any) => (
+                  <div class="task-row">
+                    <span class="task-check">⬜</span>
+                    <span class="task-icon">{t.icon}</span>
+                    <span class="task-text">{t.task}</span>
+                    <span class="task-time">{t.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <!-- Print Footer -->
+        <div class="print-footer">
+          <p>حقوق الاستخدام محفوظة لأولياء الأمور والمربين — طيف الأمل | <strong>https://easyspot.online</strong></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="tool-bottom-cta no-print">
+    <div class="container">
+      <div class="cta-inner">
+        <h3>هل تحتاج لأداة مخصصة أخرى؟</h3>
+        <p>فريقنا يضيف باستمرار أدوات جديدة استناداً لاقتراحات أولياء الأمور.</p>
+        <div class="cta-actions">
+          <button type="button" class="btn btn--primary" onclick="window.print()">
+            🖨️ طباعة الآن (PDF)
+          </button>
+          <a href="/contact/" class="btn btn--outline">
+            اقترح أداة جديدة
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .tool-top-bar {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-xs) 0;
+  }
+
+  .back-link {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary-light);
+  }
+
+  .tool-hero {
+    background: linear-gradient(135deg, var(--color-primary-xlight) 0%, #fff 60%);
+    padding: var(--space-lg) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tool-hero__badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.85rem;
+    border-radius: 100px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .tool-hero__emoji {
+    font-size: 3rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .tool-hero__title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 900;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .tool-hero__sub {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    direction: ltr;
+    margin-bottom: var(--space-xs);
+  }
+
+  .tool-hero__desc {
+    font-size: 0.98rem;
+    color: var(--color-text-muted);
+    max-width: 620px;
+    margin: 0 auto var(--space-md);
+    line-height: 1.8;
+  }
+
+  .tool-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .btn--print {
+    background: #1a6b5a;
+    font-size: 1.05rem;
+    padding: 0.85rem 2rem;
+    box-shadow: 0 4px 14px rgba(26, 107, 90, 0.3);
+  }
+
+  /* Instructions */
+  .tool-instructions {
+    padding: var(--space-md) 0;
+  }
+
+  .instructions-card {
+    background: #fffcf0;
+    border: 1px solid #f6d88e;
+    border-right: 4px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+  }
+
+  .instructions-card h3 {
+    font-size: 1.05rem;
+    color: #7a5a1a;
+    margin-bottom: var(--space-xs);
+  }
+
+  .instructions-list {
+    margin: 0;
+    padding-right: 1.25rem;
+    color: var(--color-text);
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .instructions-list li {
+    margin-bottom: 0.35rem;
+  }
+
+  /* Print Section / Paper */
+  .printable-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .print-paper {
+    background: #ffffff;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .print-header__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .brand-icon {
+    font-size: 1.8rem;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--color-primary);
+  }
+
+  .brand-url {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .print-header__title {
+    text-align: left;
+    direction: rtl;
+  }
+
+  .print-header__title h2 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 0.2rem;
+  }
+
+  .print-header__title p {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Cards Grid */
+  .cards-printable-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .print-card {
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    background: #fafcfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    position: relative;
+    page-break-inside: avoid;
+  }
+
+  .print-card__icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .print-card__label {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.35;
+  }
+
+  .print-card__tag {
+    font-size: 0.7rem;
+    color: var(--color-primary);
+    background: var(--color-primary-xlight);
+    padding: 0.1rem 0.5rem;
+    border-radius: 100px;
+    margin-top: 0.35rem;
+    font-weight: 600;
+  }
+
+  /* AAC Grid */
+  .aac-printable-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.65rem;
+  }
+
+  .aac-card {
+    border: 2.5px solid;
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+  }
+
+  .aac-card__icon {
+    font-size: 2.4rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .aac-card__text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .aac-card__type {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 100px;
+    margin-top: 0.25rem;
+  }
+
+  /* Stories */
+  .stories-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .story-card {
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    background: #fafcfb;
+    page-break-inside: avoid;
+  }
+
+  .story-title {
+    font-size: 1.15rem;
+    color: var(--color-primary);
+    border-bottom: 1.5px solid var(--color-primary-xlight);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .story-p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+    padding-right: 0.75rem;
+    border-right: 2px solid var(--color-accent);
+  }
+
+  /* Routines */
+  .routine-printable-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .routine-col {
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    background: #fafcfb;
+  }
+
+  .routine-col-title {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+  }
+
+  .tasks-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .task-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.65rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.88rem;
+  }
+
+  .task-check {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .task-icon {
+    font-size: 1.25rem;
+  }
+
+  .task-text {
+    flex: 1;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .task-time {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    direction: ltr;
+  }
+
+  .print-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+    margin-top: var(--space-md);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Bottom CTA */
+  .tool-bottom-cta {
+    padding: var(--space-lg) 0;
+    background: var(--color-primary-xlight);
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .cta-inner h3 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .cta-inner p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  /* Responsive & Print styles */
+  @media (max-width: 768px) {
+    .cards-printable-grid,
+    .aac-printable-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .routine-printable-container {
+      grid-template-columns: 1fr;
+    }
+
+    .print-header {
+      flex-direction: column;
+      gap: var(--space-xs);
+      text-align: center;
+    }
+
+    .print-header__title {
+      text-align: center;
+    }
+  }
+
+  @media print {
+    .no-print,
+    .site-header,
+    .site-footer,
+    .ad-slot,
+    .tool-top-bar {
+      display: none !important;
+    }
+
+    body {
+      background: #fff !important;
+      color: #000 !important;
+      font-size: 12pt;
+    }
+
+    .printable-section {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .print-paper {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    .cards-printable-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 8mm !important;
+    }
+
+    .print-card {
+      border: 1px solid #333 !important;
+      break-inside: avoid;
+    }
+  }
+</style>
