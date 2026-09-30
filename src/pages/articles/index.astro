@@ -91,7 +91,11 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
         <span class="filters-label">تصفية حسب:</span>
         <div class="filters-buttons">
           {categories.map((cat, i) => (
-            <button class={`filter-btn ${i === 0 ? 'filter-btn--active' : ''}`}>
+            <button
+              class={`filter-btn ${i === 0 ? 'filter-btn--active' : ''}`}
+              data-category={cat}
+              type="button"
+            >
               {cat}
             </button>
           ))}
@@ -116,11 +120,11 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
   <section class="articles-section">
     <div class="container">
       <div class="articles-meta">
-        <p>عرض <strong>{articles.length}</strong> مقالات</p>
+        <p>عرض <strong id="articlesCount">{articles.length}</strong> مقالات</p>
       </div>
-      <div class="articles-grid">
+      <div class="articles-grid" id="articlesGrid">
         {articles.map((article) => (
-          <article class="article-card">
+          <article class="article-card" data-category={article.category}>
             <div class="article-card__emoji">{article.emoji}</div>
             <div class="article-card__body">
               <div class="article-card__meta">
@@ -145,6 +149,9 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
             </div>
           </article>
         ))}
+      </div>
+      <div id="noArticles" class="articles-empty" style="display: none;">
+        <p>لا توجد مقالات في هذا التصنيف حالياً.</p>
       </div>
     </div>
   </section>
@@ -512,9 +519,25 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
     margin-bottom: 0;
   }
 
+  .article-card.is-hidden {
+    display: none !important;
+  }
+
+  .articles-empty {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    grid-column: 1 / -1;
+  }
+
   @media (max-width: 768px) {
     .articles-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-sm);
     }
 
     .method-grid {
@@ -522,8 +545,71 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
     }
 
     .filters-bar {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filters-buttons {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .filters-buttons::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+    }
+
+    .article-card__emoji {
+      font-size: 2.2rem;
+      padding: var(--space-sm);
     }
   }
 </style>
+
+<script>
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.article-card');
+    const countEl = document.getElementById('articlesCount');
+    const emptyEl = document.getElementById('noArticles');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('filter-btn--active'));
+        btn.classList.add('filter-btn--active');
+
+        const selected = btn.getAttribute('data-category');
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute('data-category');
+          if (selected === 'الكل' || cardCat === selected) {
+            card.classList.remove('is-hidden');
+            visible++;
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+
+        if (countEl) countEl.textContent = String(visible);
+        if (emptyEl) emptyEl.style.display = visible === 0 ? 'block' : 'none';
+      });
+    });
+  }
+
+  // Run on initial load and page transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFilters);
+  } else {
+    initFilters();
+  }
+</script>
