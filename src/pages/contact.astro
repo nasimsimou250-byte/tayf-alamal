@@ -132,8 +132,8 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
           <div class="info-card info-card--accent">
             <h3>📧 البريد الإلكتروني</h3>
             <p>للتواصل المباشر:</p>
-            <a href="mailto:contact@tayfalamal.com" dir="ltr" class="email-link">
-              contact@tayfalamal.com
+            <a href="mailto:contact@easyspot.online" dir="ltr" class="email-link">
+              contact@easyspot.online
             </a>
           </div>
 
@@ -298,13 +298,13 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
 
   /* Contact Layout */
   .contact-section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
   }
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: var(--space-lg);
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: var(--space-md);
     align-items: start;
   }
 
@@ -314,11 +314,11 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
   }
 
   .form-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: var(--color-primary);
     margin-bottom: var(--space-xs);
   }
@@ -328,7 +328,7 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
     border-right: 3px solid var(--color-primary);
     padding: 0.75rem 1rem;
     border-radius: var(--radius-sm);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--color-text-muted);
     margin-bottom: var(--space-md);
   }
@@ -341,20 +341,20 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
 
   .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-sm);
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
   }
 
   .form-group label {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     color: var(--color-text);
   }
 
@@ -365,11 +365,14 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 0.9rem;
     border: 1.5px solid var(--color-border);
     border-radius: var(--radius-sm);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text);
     background: var(--color-bg);
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -588,16 +591,28 @@ const description = 'تواصل مع فريق طيف الأمل لأي استف�
   @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-md);
     }
 
     .contact-sidebar {
-      order: -1;
+      order: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
     }
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 680px) {
     .form-row {
       grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-wrapper {
+      padding: var(--space-md);
     }
   }
 </style>
