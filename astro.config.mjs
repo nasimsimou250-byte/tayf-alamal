@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://autismkids-ar.vercel.app',
+  site: 'https://easyspot.online',
   output: 'static',
 });

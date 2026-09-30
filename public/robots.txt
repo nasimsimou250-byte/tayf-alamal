@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autismkids-ar.vercel.app/sitemap.xml
+Sitemap: https://easyspot.online/sitemap.xml
